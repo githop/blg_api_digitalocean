@@ -6,6 +6,8 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+g = User.create(username: 'githop', email: 'tom@githop.com', password: 'githop')
+
 a0 = Article.create(title: "Hello Internet!")
 a0.imgs << Img.create(href: 'http://googledrive.com/host/0B9oZ9Poh4Y5NfnpraTB2UFdLamJHMzFnQkszLVdBWklKbFBKY2lGemN5T3hyRVl0ZHV3UFE/hello-world.gif', title:'hello-internet')
 a0h1 = Header.create(text: "Welcome to my blog")
@@ -29,7 +31,7 @@ a0h4.paragraphs << Paragraph.create(body: "The main purpose of this blog is more
 [a0h1, a0h2, a0h3, a0h4].each do |header|
 	a0.headers << header
 end
-
+a0.user = g
 a0.save
 
 a1 = Article.create(title:"second post!")

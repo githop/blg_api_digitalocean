@@ -35,7 +35,7 @@ a1h1.paragraphs << Paragraph.create(body: Faker::Lorem.paragraph)
 a1h1.paragraphs << Paragraph.create(body: Faker::Lorem.paragraph)
 a1h1.paragraphs << Paragraph.create(body: Faker::Lorem.paragraph)
 
-a1.imgs << Img.create(href:'http://i.imgur.com/XDmjfUe', title: 'Shooter McGavern');
+a1.imgs << Img.create(href:'http://i.imgur.com/XDmjfUe.jpg', title: 'Shooter McGavern');
 
 a1h2 = Header.create(text: "The latin continues")
 a1.headers << a1h2

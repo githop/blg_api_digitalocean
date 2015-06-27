@@ -16,4 +16,4 @@
 # Using secret_token for rails3 compatibility. Change to secret_key_base
 # to avoid deprecation warning.
 # Can be safely removed in a rails3 api-only application.
-BlgApi::Application.config.secret_token = '002fd3086aea815cb1aa0ab2df28ccfba11cb2ef6d634265b46ab4d6abb07424d117828053540a55de4a2d2387001039375704b9b68b5b9b343b83ff31ea9b76'
+BlgApi::Application.config.secret_token = '3b9d728e9abcc9f12d63db1116ea6dad7dad599279f96e47eeeacd87d73ab67b7dbf48d9462a8febadc6d60afb5e321c694292385465dd0898a4b0c8939ff67d'

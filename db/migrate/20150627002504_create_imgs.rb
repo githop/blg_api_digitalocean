@@ -3,6 +3,7 @@ class CreateImgs < ActiveRecord::Migration
     create_table :imgs do |t|
       t.string :href
       t.string :title
+      t.belongs_to :article
 
       t.timestamps null: false
     end

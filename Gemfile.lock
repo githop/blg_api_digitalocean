@@ -128,3 +128,6 @@ DEPENDENCIES
   responders
   spring
   unicorn
+
+BUNDLED WITH
+   1.10.4

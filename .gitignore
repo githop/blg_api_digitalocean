@@ -8,7 +8,7 @@
 /.bundle
 
 # Ignore all logfiles and tempfiles.
-/shared/log/*
+shared/log/*
 /log/*
 !/log/.keep
 /tmp

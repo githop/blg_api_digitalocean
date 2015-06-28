@@ -1,3 +1,5 @@
+
+#TODO: setup login_user service, auth_controller a bunch of other stuff.
 class TokenHandler
 	class << self
 		def encode_auth_token(user, exp: 1.day.from_now.to_i)
@@ -17,7 +19,7 @@ class TokenHandler
 			'HS256'
 		end
 
-		def decode_without_verification()
+		def decode_without_verification(token)
 			JWT.decode(token, nil, false, verify_expiration: false)
 		end
 

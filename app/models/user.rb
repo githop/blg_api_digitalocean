@@ -1,11 +1,11 @@
 class User < ActiveRecord::Base
-	belongs_to :article
+	has_many :articles
 	has_secure_password
 
-	enum role: [:user, :admin]
+	enum role: [:basic, :admin]
   after_initialize :set_default_role, :if => :new_record?
 
   def set_default_role
-    self.role ||= :user
+    self.role ||= :basic
   end
 end

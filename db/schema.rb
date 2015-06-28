@@ -18,9 +18,13 @@ ActiveRecord::Schema.define(version: 20150627230449) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "title"
+    t.date     "posted_on"
+    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_index "articles", ["user_id"], name: "index_articles_on_user_id", using: :btree
 
   create_table "headers", force: :cascade do |t|
     t.string   "text"
@@ -49,7 +53,6 @@ ActiveRecord::Schema.define(version: 20150627230449) do
     t.string   "email"
     t.string   "password_digest"
     t.integer  "role"
-    t.integer  "article_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end

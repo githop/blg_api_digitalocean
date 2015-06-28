@@ -4,12 +4,12 @@ class TokenHandler
 	class << self
 		def encode_auth_token(user, exp: 1.day.from_now.to_i)
 			payload = {user_id: user.id, sub: 'auth', exp: exp, role: user.role}
-			JWT.encode(payload, user.password_digest, algorithm)
+			JWT.encode(payload, Rails.application.secrets.secret_key_base, algorithm)
 		end
 
 		def decode_auth_token(token)
 			user = get_user_from_token(token)
-			payload, _ = JWT.decode(token, user.password_digest, algorithm, {'sub' => 'auth', verify_sub: true})
+			payload, _ = JWT.decode(token, Rails.application.secrets.secret_key_base, algorithm, {'sub' => 'auth', verify_sub: true})
 			[user, payload]
 		end
 

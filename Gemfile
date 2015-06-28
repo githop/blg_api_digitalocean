@@ -15,10 +15,14 @@ gem 'pg'
 
 gem 'faker'
 
+gem 'jwt'
+
+gem 'simple_command'
+
 gem 'active_model_serializers', :git => 'https://github.com/rails-api/active_model_serializers.git', :branch => '0-10-stable'
 
 # To use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
 
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'

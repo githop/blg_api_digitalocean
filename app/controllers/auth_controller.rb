@@ -3,7 +3,7 @@ class AuthController < ApplicationController
 		cmd = LoginUser.call(login_params)
 
 		if cmd.success?
-			render json: { data: { token: cmd.result } }
+			render json: { token: cmd.result }
 		else
 			render json: {error: cmd.error}, status: :unauthorized
 		end

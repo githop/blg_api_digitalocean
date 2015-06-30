@@ -36,7 +36,8 @@ end
 a0.save
 
 a1 = Article.create(title: 'Client Series - Intro', posted_on: Date.new(2015,6,28))
-a1.user = User.create(username: "guestAuthor", email: "guest@example.com", password: "guest")
+# a1.user = User.create(username: "guestAuthor", email: "guest@example.com", password: "guest")
+a1.user = g
 a1.imgs << Img.create(href: "http://googledrive.com/host/0B9oZ9Poh4Y5NfmF0SFV4VW95QzBYcklTR1k5UDlNLTFROF9fSXpoMG1OTEpfX1Q0UVdQVzg/legobrick.png", title: 'prior art' )
 a1h0 = Header.create(text: "Getting Inspiration")
 

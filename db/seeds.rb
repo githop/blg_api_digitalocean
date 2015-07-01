@@ -20,7 +20,7 @@ g.save
 
 a0 = Article.create(title: "Hello Internet!", posted_on: Date.new(2015,6,27))
 a0.user = g
-a0.imgs << Img.create(href: '0B9oZ9Poh4Y5NeDRCWVdCQjlVYUk', title:'hello-internet')
+a0.imgs << Img.create(href: img_url('0B9oZ9Poh4Y5NeDRCWVdCQjlVYUk'), title:'hello-internet')
 a0h1 = Header.create(text: "Welcome to my blog")
 
 a0h1.paragraphs << Paragraph.create(body: "If you know me, you probably know I enjoy a good conversation and can be rather talkative in general. Strangely enough, that doesn’t seem to translate into me blogging very often. Blogging platforms have long been available to those with the urge to blog. So if it were the case that I needed a blogging outlet, you likely wouldn’t be reading this here.")
@@ -47,7 +47,7 @@ a0.save
 a1 = Article.create(title: 'Client Series - Intro', posted_on: Date.new(2015,6,28))
 # a1.user = User.create(username: "guestAuthor", email: "guest@example.com", password: "guest")
 a1.user = g
-a1.imgs << Img.create(href: '0B9oZ9Poh4Y5NUjRpN1hpRS1hVlE', title: 'prior art' )
+a1.imgs << Img.create(href: img_url('0B9oZ9Poh4Y5NUjRpN1hpRS1hVlE'), title: 'prior art' )
 a1h0 = Header.create(text: "Getting Inspiration")
 
 a1h0.paragraphs << Paragraph.create(body: "I set out to achieve a couple of things with this blog. Most of those things are centered around achieving little proof-of-concepts regarding technologies which I see as relevant. It’s mostly an outlet for me to be able to experiment on things in a risk free manner. What typically happens is that I will see some cool new pattern or technique via twitter or reddit. Reading programming articles can be pretty pointless unless you take the time to internalize the things you are reading about. One of the best ways to do that is something like this blog.")
@@ -78,12 +78,12 @@ a1.save
 a2 = Article.create(title: "Server - Authorization", posted_on: Date.new(2015,6,29))
 a2.user = g
 
-a2.imgs << Img.create(href:'0B9oZ9Poh4Y5NQ1piWUtiOFJfQ2M', title: 'lock.png')
-a2.imgs << Img.create(href:'0B9oZ9Poh4Y5NQW1qNXR4bjZiMFk', title:'AuthController call method')
-a2.imgs << Img.create(href:'0B9oZ9Poh4Y5NVHUzdmlYeDFySGM', title: 'login_user service')
-a2.imgs << Img.create(href:'0B9oZ9Poh4Y5Nc08yc2ZBOWdDdk0', title: 'TokenHandler')
-a2.imgs << Img.create(href:'0B9oZ9Poh4Y5NSFJ3b25IRHJmUFk', title: 'ApplicationController')
-a2.imgs << Img.create(href:'0B9oZ9Poh4Y5NVjV3VFJNTk5EVFU', title: 'ArticlesController')
+a2.imgs << Img.create(href: img_url('0B9oZ9Poh4Y5NQ1piWUtiOFJfQ2M'), title: 'lock.png')
+a2.imgs << Img.create(href: img_url('0B9oZ9Poh4Y5NQW1qNXR4bjZiMFk'), title:'AuthController call method')
+a2.imgs << Img.create(href: img_url('0B9oZ9Poh4Y5NVHUzdmlYeDFySGM'), title: 'login_user service')
+a2.imgs << Img.create(href: img_url('0B9oZ9Poh4Y5Nc08yc2ZBOWdDdk0'), title: 'TokenHandler')
+a2.imgs << Img.create(href: img_url('0B9oZ9Poh4Y5NSFJ3b25IRHJmUFk'), title: 'ApplicationController')
+a2.imgs << Img.create(href: img_url('0B9oZ9Poh4Y5NVjV3VFJNTk5EVFU'), title: 'ArticlesController')
 
 
 a2h0 = Header.create(text: 'Rails with Token Authentication')
@@ -130,12 +130,12 @@ a2.save
 a3 = Article.create(title: 'Client -  Authentication', posted_on: Date.new(2015,6,30))
 a3.user = g
 
-a3.imgs << Img.create(href:'0B9oZ9Poh4Y5Nblo5WTg2UGRWX1U', title: "keys")
-a3.imgs << Img.create(href:'0B9oZ9Poh4Y5NV1Y4ZWxsOVFaU28', title: "User login function")
-a3.imgs << Img.create(href:'0B9oZ9Poh4Y5NYzZ2ZGNMMWZGNjQ', title: "Remembering the current user")
-a3.imgs << Img.create(href:'0B9oZ9Poh4Y5NaXBpUm5tZGNYNkU', title: "AuthToken")
-a3.imgs << Img.create(href:'0B9oZ9Poh4Y5NWnV0RzZVc0wyQ00', title: "shell template html")
-a3.imgs << Img.create(href:'0B9oZ9Poh4Y5NODZoUGN3b0VfOUU', title: "HomeCtrl")
+a3.imgs << Img.create(href: img_url('0B9oZ9Poh4Y5Nblo5WTg2UGRWX1U'), title: "keys")
+a3.imgs << Img.create(href: img_url('0B9oZ9Poh4Y5NV1Y4ZWxsOVFaU28'), title: "User login function")
+a3.imgs << Img.create(href: img_url('0B9oZ9Poh4Y5NYzZ2ZGNMMWZGNjQ'), title: "Remembering the current user")
+a3.imgs << Img.create(href: img_url('0B9oZ9Poh4Y5NaXBpUm5tZGNYNkU'), title: "AuthToken")
+a3.imgs << Img.create(href: img_url('0B9oZ9Poh4Y5NWnV0RzZVc0wyQ00'), title: "shell template html")
+a3.imgs << Img.create(href: img_url('0B9oZ9Poh4Y5NODZoUGN3b0VfOUU'), title: "HomeCtrl")
 
 a3h0 = Header.create(text: "Angular and Json Web Tokens")
 a3h1 = Header.create(text: "Token Concerns")

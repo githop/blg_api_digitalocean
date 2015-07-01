@@ -6,12 +6,21 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+#https://docs.google.com/uc?id=ID_HERE&export=download
+
+def img_url(id)
+	drive_url = 'https://docs.google.com/uc?'
+	query_str = URI.encode_www_form([["id", "#{id}"],["export", "download"]])
+	drive_url + query_str
+end
+
+
 g = User.new(username: 'githop', email: 'tom@githop.com', password: 'githop')
 g.save
 
 a0 = Article.create(title: "Hello Internet!", posted_on: Date.new(2015,6,27))
 a0.user = g
-a0.imgs << Img.create(href: 'http://googledrive.com/host/0B9oZ9Poh4Y5NfnpraTB2UFdLamJHMzFnQkszLVdBWklKbFBKY2lGemN5T3hyRVl0ZHV3UFE/hello-world.gif', title:'hello-internet')
+a0.imgs << Img.create(href: img_url('0B9oZ9Poh4Y5NeDRCWVdCQjlVYUk'), title:'hello-internet')
 a0h1 = Header.create(text: "Welcome to my blog")
 
 a0h1.paragraphs << Paragraph.create(body: "If you know me, you probably know I enjoy a good conversation and can be rather talkative in general. Strangely enough, that doesn’t seem to translate into me blogging very often. Blogging platforms have long been available to those with the urge to blog. So if it were the case that I needed a blogging outlet, you likely wouldn’t be reading this here.")
@@ -38,7 +47,7 @@ a0.save
 a1 = Article.create(title: 'Client Series - Intro', posted_on: Date.new(2015,6,28))
 # a1.user = User.create(username: "guestAuthor", email: "guest@example.com", password: "guest")
 a1.user = g
-a1.imgs << Img.create(href: "http://googledrive.com/host/0B9oZ9Poh4Y5NfmF0SFV4VW95QzBYcklTR1k5UDlNLTFROF9fSXpoMG1OTEpfX1Q0UVdQVzg/legobrick.png", title: 'prior art' )
+a1.imgs << Img.create(href: img_url('0B9oZ9Poh4Y5NUjRpN1hpRS1hVlE'), title: 'prior art' )
 a1h0 = Header.create(text: "Getting Inspiration")
 
 a1h0.paragraphs << Paragraph.create(body: "I set out to achieve a couple of things with this blog. Most of those things are centered around achieving little proof-of-concepts regarding technologies which I see as relevant. It’s mostly an outlet for me to be able to experiment on things in a risk free manner. What typically happens is that I will see some cool new pattern or technique via twitter or reddit. Reading programming articles can be pretty pointless unless you take the time to internalize the things you are reading about. One of the best ways to do that is something like this blog.")
@@ -68,13 +77,13 @@ a1.save
 
 a2 = Article.create(title: "Server - Authorization", posted_on: Date.new(2015,6,29))
 a2.user = g
-file_path = 'http://googledrive.com/host/0B9oZ9Poh4Y5NfldBelFzenJmekJwc2hqSl9KamM5VTN3bjNqWXBsenVPMnF3aV9iYWlJRUk/'
-a2.imgs << Img.create(href: file_path + 'lock.png', title: 'lock.png')
-a2.imgs << Img.create(href: file_path + 'fig1.png', title:'AuthController call method')
-a2.imgs << Img.create(href: file_path + 'fig2.png', title: 'login_user service')
-a2.imgs << Img.create(href: file_path + 'fig3.png', title: 'TokenHandler')
-a2.imgs << Img.create(href: file_path + 'fig4.png', title: 'ApplicationController')
-a2.imgs << Img.create(href: file_path + 'fig5.png', title: 'ArticlesController')
+
+a2.imgs << Img.create(href: img_url('0B9oZ9Poh4Y5NQ1piWUtiOFJfQ2M'), title: 'lock.png')
+a2.imgs << Img.create(href: img_url('0B9oZ9Poh4Y5NQW1qNXR4bjZiMFk'), title:'AuthController call method')
+a2.imgs << Img.create(href: img_url('0B9oZ9Poh4Y5NVHUzdmlYeDFySGM'), title: 'login_user service')
+a2.imgs << Img.create(href: img_url('0B9oZ9Poh4Y5Nc08yc2ZBOWdDdk0'), title: 'TokenHandler')
+a2.imgs << Img.create(href: img_url('0B9oZ9Poh4Y5NSFJ3b25IRHJmUFk'), title: 'ApplicationController')
+a2.imgs << Img.create(href: img_url('0B9oZ9Poh4Y5NVjV3VFJNTk5EVFU'), title: 'ArticlesController')
 
 
 a2h0 = Header.create(text: 'Rails with Token Authentication')
@@ -118,3 +127,39 @@ end
 
 a2.save
 
+a3 = Article.create(title: 'Client -  Authentication', posted_on: Date.new(2015,6,30))
+a3.user = g
+
+a3.imgs << Img.create(href: img_url('0B9oZ9Poh4Y5Nblo5WTg2UGRWX1U'), title: "keys")
+a3.imgs << Img.create(href: img_url('0B9oZ9Poh4Y5NV1Y4ZWxsOVFaU28'), title: "User login function")
+a3.imgs << Img.create(href: img_url('0B9oZ9Poh4Y5NYzZ2ZGNMMWZGNjQ'), title: "Remembering the current user")
+a3.imgs << Img.create(href: img_url('0B9oZ9Poh4Y5NaXBpUm5tZGNYNkU'), title: "AuthToken")
+a3.imgs << Img.create(href: img_url('0B9oZ9Poh4Y5NWnV0RzZVc0wyQ00'), title: "shell template html")
+a3.imgs << Img.create(href: img_url('0B9oZ9Poh4Y5NODZoUGN3b0VfOUU'), title: "HomeCtrl")
+
+a3h0 = Header.create(text: "Angular and Json Web Tokens")
+a3h1 = Header.create(text: "Token Concerns")
+a3h2 = Header.create(text: "Informing the User")
+a3h3 = Header.create(text: "Wrap Up")
+
+a3h0.paragraphs << Paragraph.create(body: "In my previous post, I detailed how I setup JWT server side. This post details the implementation in the Angular client. In order to get this done, I used a User service (a factory), an Angular interceptor, and an AuthToken factory. If you are unfamiliar with Angular, factories and basically singletons, and an interceptor is just a factory as well. This code is on github, checkout the auth folder of githop.com repo for the souce files.")
+a3h0.paragraphs << Paragraph.create(body: "The basic auth features I expect are the user logging in, persisting their issued token, appending it to the necessary HTTP requests, and the app should notify the user if they are logged in or not. I also want the app to remember if I’m logged in if I leave and return. Here’s how I used the services mentioned earlier to make it happen.")
+
+a3h1.paragraphs << Paragraph.create(body: "The User service handles login and remembering the current user. The JWT payload contains data about the user, but must be decoded first. Once the User service is provided the token, it will decode it and store the payload data in the service. Since I’m storing the user data in a factory, it can be injected anywhere in the app where needed.")
+a3h1.paragraphs << Paragraph.create(body: "If the token is set in localStorage when the user returns to the site, the User server will honor it, making the user not have to log in again to get the token.")
+a3h1.paragraphs << Paragraph.create(body: "The AuthToken factory is basically a setter / getter for the token with localStorage, simple enough.")
+a3h1.paragraphs << Paragraph.create(body: "Angular interceptors allow you to manipulate the request / response headers that $http handles. There are 4 methods available, request / response and error handlers for each. I’m only using the request handler at the moment. I use some logic to only apply the request to the articles resource that are going to mutate the database; i.e., non-idempotent stuff. Also, no sense in authenticate our async template requests.")
+
+a3h2.paragraphs << Paragraph.create(body: "I use a particular setup with ui-router to provide a “layout” page for my templates, it takes advantage of nested views and absolutely named views. I have a single entry point of the app (a ui-view,  in index.html) which leads to a layout template (shell.tmpl.html) where the app is actually rendered.")
+a3h2.paragraphs << Paragraph.create(body: "The named views are the nav section and body section. The nav template is always shown, and when you are browsing the blog. In typical nav fashion, all the site navigation links are contained within. The body section is a ui-view where the individual pages of the site are injected. This setup reduces copying code as I don’t have use an ng-include for the nav template or copy into the necessary templates. More importantly, ui-router allows absolute views to have their own controllers which, coupled with controller scope inheritance, can be very useful.")
+a3h2.paragraphs << Paragraph.create(body: "Since my entire app is pumped through these 2 named views, the layout template (shell.tmpl.html) provides a globally accessible point for me to provide data other templates throughout the whole app. The layout template is registered to the HomeCtrl, which is where I inject my User service and house my login logic.")
+a3h2.paragraphs << Paragraph.create(body: "This makes it so I can access my current user basically anywhere in the app, as the Home state is somewhat of a root state.")
+
+a3h3.paragraphs << Paragraph.create(body: "Right now, I have everything in place to actually take advantage of an authorized user flow, although there is no aspect in my blog that currently uses it. This is because the blog is under heavy development, and at the moment I have yet to settle on exactly how I want to implement the create and edit aspects of the blog process, which you would need to have proper access to do.")
+a3h3.paragraphs << Paragraph.create(body: "When I wrote this post, all the blog post data is still being hard coded into the rails seed file, which is fine, as a big purpose of this blog has to do with consuming JSON from a restful resource. My next post will detail how I do client side data modeling. Thanks for reading and stay tuned for updates!")
+
+[a3h0,a3h1,a3h2,a3h3].each do |header|
+	a3.headers << header
+end
+
+a3.save

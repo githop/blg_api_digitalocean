@@ -163,3 +163,57 @@ a3h3.paragraphs << Paragraph.create(body: "When I wrote this post, all the blog 
 end
 
 a3.save
+
+a4 = Article.create(title: 'Client - Data Model', posted_on: Date.new(2015,7,07))
+a4.user = g
+
+a4.imgs << Img.create(href: img_url("0B9oZ9Poh4Y5Nc1NPZExSUEpxbzQ"), title: "Client - Data Model")
+a4.imgs << Img.create(href: img_url("0B9oZ9Poh4Y5NaTVnNzBONU1vaWM"), title: "top level json response")
+a4.imgs << Img.create(href: img_url("0B9oZ9Poh4Y5NVzdwRUpjRjEtMlE"), title: "single resource")
+a4.imgs << Img.create(href: img_url("0B9oZ9Poh4Y5NWS1HQ2tzcExUdUE"), title: "BlogCtrl")
+a4.imgs << Img.create(href: img_url("0B9oZ9Poh4Y5NUVQzelh3WHR1Rzg"), title: "PostCtrl")
+
+a4h0 = Header.create(text: "ActiveModel::Serializers")
+a4h1 = Header.create(text: "JSON:API")
+a4h2 = Header.create(text: "Flat Json")
+a4h3 = Header.create(text: "Benefit")
+a4h4 = Header.create(text: "Code and Tell")
+a4h5 = Header.create(text: "Posts Service")
+a4h6 = Header.create(text: "Order of Operations")
+a4h7 = Header.create(text: "Wrap Up")
+
+a4h0.paragraphs << Paragraph.create(body:"On the server side, this blog users rails-api with a gem called ActiveModel::Serializers. AMS is for serialization of ActiveRecord objects. AMS allows for serializers to be defined that give you control over the final json schema. It will also handle relations and embed the necessary hierarchy into the final json object.")
+a4h0.paragraphs << Paragraph.create(body:"I first used it in another app of mine, padded pockets, but it has been updated since then. One of the new features available is swappable adapters. The default adapter will more or less resemble the output of calling <code>:to_json</code> on a basic model with no included relations.")
+
+a4h1.paragraphs << Paragraph.create(body: "I mention all of this only because this is where I heard about the JSON:API spec. It is designed to standardize the format of a JSON response. It’s similar to HAL, but is more clever in its design to allow to fancy client side data caching. After reading the spec and seeing who the authors were, I decided to give it a try for this particular app.")
+a4h1.paragraphs << Paragraph.create(body: "The spec is at version 1.0 and is considered stable, although AMS does not do a good job adhering to the spec. The spec requires that all responses consist of three things, a links object for navigation, a data array for the primary resource and an included array for any related resources.")
+a4h1.paragraphs << Paragraph.create(body: "One thing I noticed is that all resources have uniform format as well. In JSON:API, a resource object has the following attributes: type, id, attributes, and relationships. Attributes and relationships are objects themselves with a uniform format.")
+
+a4h2.paragraphs << Paragraph.create(body: "By default AMS will serialize a simple one-to-many relation by embedding the related objects into an array of objects inside the parent node. At first this is the approach I preferred, as it is the easiest setup to ng-repeat over for an Angular client. Using JSON:API spec, I am still heavily manipulating the response to make it nice to use in my templates.")
+a4h2.paragraphs << Paragraph.create(body: "I figure this is because the prime driver behind JSON:API spec is EmberJs. The latest version of EmberData is using the spec by default. There is already one angular module I saw related to JSON:API but I decided to use my own implementation.")
+a4h2.paragraphs << Paragraph.create(body: "When you can count on a uniform format of the json response it makes it easier to recreate the same data model on the client. All resources have an id and type attribute, and the data you are after is either in the primary resource or in the <code>included</code> array. Objects in the <code>included</code> array have the same attributes as the primary resource.")
+
+a4h3.paragraphs << Paragraph.create(body: "This means that if you are requesting a collection or single resource from your server you will get the exact same json back every time. The downside is that you have to do a lot of work to handle the data on the client side to rebuild the data model for easy use. Using the JSON:API spec initially took more effort for me, but the it soon became worth the effort.")
+
+a4h4.paragraphs << Paragraph.create(body: "To take advantage JSON:API I used a few custom services: <a href='https://github.com/githop/githop.com/blob/master/src/app/home/blog/blogpost.model.js' target='_blank'>blogpost.model.js</a> and <a href='https://github.com/githop/githop.com/blob/master/src/app/home/blog/posts.srv.js' target='_blank'>posts.srv.js</a>. They are both Angular factories but the naming convention in use shows what they do. The BlogPost model is for storing data for a single post. The Posts service is for getting posts from the server and turning them into BlogPost instances to be cached.")
+
+a4h5.paragraphs << Paragraph.create(body: "The Posts service exposes four methods:<code>  getPool(), getArticle(), loadAll(), setArticle() </code>. After any resource has been requested, it’s cached inside the Posts service for use later. <code>getPool()</code> returns what is in the cache. The rest of the methods are responsible for populating the cache or using the cache to return a resource without requesting it from the server.")
+a4h5.paragraphs << Paragraph.create(body: "<code>loadAll()</code> returns a Promise which resolves to an array of BlogPost instances from the server. It will also cache each instance as they come in from the server.")
+a4h5.paragraphs << Paragraph.create(body: "<code>getArticle()</code> returns a Promise that resolves to a single post from the cache, or will request and cache it from the server.")
+
+a4h6.paragraphs << Paragraph.create(body: "The way I use these methods with the app architecture allows some slick benefits, such as no http requests after the initial posts load. Since I’m storing data in services rather than controllers, I can inject them into the necessary controller and have access to the methods exposed.")
+a4h6.paragraphs << Paragraph.create(body: "When a user clicks on the blog link, the BlogCtrl will fire up and fetch the cache from the Posts serice. The Post service has an init function which gets all posts from the server and caches them.")
+a4h6.paragraphs << Paragraph.create(body: "When a user clicks on a blog post, the PostCtrl will fire up and fetch the individual post from the cache. PostCtrl is fed route params from ui-router and uses them to know which post to grab from the cache.")
+a4h6.paragraphs << Paragraph.create(body: "If you browse my blog with your network tab open, you’ll notice that after the initial request to the <code>/articles</code> resource on the rails server, no more data requests are made from that point on.")
+
+a4h7.paragraphs << Paragraph.create(body: "There isn’t a clearly defined community solution to modeling data on the client with Angular. I’ve seen a lot of approaches on the blogosphere regarding ways to make it happen. I more or less used a mash up of what I liked from several blog posts, plus the typical custom tweaking to fit my needs.")
+a4h7.paragraphs << Paragraph.create(body: "I currently don’t have enough posts to start paginating my requests, but I think the JSON:API will make implementing pagination simple when the time comes. Thanks for stopping by, stay tuned for updates!")
+
+[a4h0, a4h1, a4h2, a4h3, a4h4, a4h5, a4h6, a4h7].each do |header|
+	a4.headers << header
+end
+
+a4.save
+
+
+

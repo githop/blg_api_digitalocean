@@ -3,6 +3,7 @@ class CreateArticles < ActiveRecord::Migration
     create_table :articles do |t|
       t.string :title
       t.date :posted_on
+      t.integer :sentiment_rank
       t.integer :user_id
 
       t.timestamps null: false

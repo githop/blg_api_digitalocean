@@ -14,11 +14,10 @@ def img_url(id)
 	drive_url + query_str
 end
 
-
 g = User.new(username: 'githop', email: 'tom@githop.com', password: 'githop')
 g.save
 
-a0 = Article.create(title: "Hello Internet!", posted_on: Date.new(2015,6,27))
+a0 = Article.new(title: "Hello Internet!", posted_on: Date.new(2015,6,27))
 a0.user = g
 a0.imgs << Img.create(href: img_url('0B9oZ9Poh4Y5NeDRCWVdCQjlVYUk'), title:'hello-internet')
 a0h1 = Header.create(text: "Welcome to my blog")
@@ -44,7 +43,7 @@ end
 
 a0.save
 
-a1 = Article.create(title: 'Client Series - Intro', posted_on: Date.new(2015,6,28))
+a1 = Article.new(title: 'Client Series - Intro', posted_on: Date.new(2015,6,28))
 # a1.user = User.create(username: "guestAuthor", email: "guest@example.com", password: "guest")
 a1.user = g
 a1.imgs << Img.create(href: img_url('0B9oZ9Poh4Y5NUjRpN1hpRS1hVlE'), title: 'prior art' )
@@ -75,7 +74,7 @@ end
 
 a1.save
 
-a2 = Article.create(title: "Server - Authorization", posted_on: Date.new(2015,6,29))
+a2 = Article.new(title: "Server - Authorization", posted_on: Date.new(2015,6,29))
 a2.user = g
 
 a2.imgs << Img.create(href: img_url('0B9oZ9Poh4Y5NQ1piWUtiOFJfQ2M'), title: 'lock.png')
@@ -127,7 +126,7 @@ end
 
 a2.save
 
-a3 = Article.create(title: 'Client -  Authentication', posted_on: Date.new(2015,6,30))
+a3 = Article.new(title: 'Client -  Authentication', posted_on: Date.new(2015,6,30))
 a3.user = g
 
 a3.imgs << Img.create(href: img_url('0B9oZ9Poh4Y5Nblo5WTg2UGRWX1U'), title: "keys")
@@ -164,7 +163,7 @@ end
 
 a3.save
 
-a4 = Article.create(title: 'Client - Data Model', posted_on: Date.new(2015,7,07))
+a4 = Article.new(title: 'Client - Data Model', posted_on: Date.new(2015,7,07))
 a4.user = g
 
 a4.imgs << Img.create(href: img_url("0B9oZ9Poh4Y5Nc1NPZExSUEpxbzQ"), title: "Client - Data Model")
@@ -214,6 +213,11 @@ a4h7.paragraphs << Paragraph.create(body: "I currently don’t have enough posts
 end
 
 a4.save
+
+Article.all.each do |article|
+	article.analyze_sentiment
+	article.save
+end
 
 
 

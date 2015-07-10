@@ -1,5 +1,5 @@
 class ArticleSerializer < ActiveModel::Serializer
-  attributes :id, :title
+  attributes :id, :title, :sentiment_rank
   attribute :posted_on, :key => :postedOn
 
   has_many :imgs, :headers, :paragraphs

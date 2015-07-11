@@ -19,13 +19,13 @@ class DictionaryHandler
       #if we have a match, return it
       word_ranks << word_rank if word_rank
     end
-
-    word_ranks.empty? ? [0] : word_ranks
+    word_ranks
   end
 
   # returns sum total of analyzed words
   def rank_words(words)
-    search_dictionary(words).inject(:+)
+    words = search_dictionary(words)
+    words.empty? ? 0 : words.inject(:+)
   end
 
   # returns count of positive, negative, and neutral words as array

@@ -3,6 +3,7 @@ class DictionaryHandler
     @dict = dict
   end
 
+  # parses input string into array
   def parse_words(words)
     words.scan(/\w[A-z\uffe2\u0027\u2019]+/)
   end

@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   resources :articles, except: [:new, :edit]
 
   post '/auth/login' => 'auth#login'
-  post '/analyze' => 'sentiments#analyze'
+  post 'analyze' => 'sentiments#analyze'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

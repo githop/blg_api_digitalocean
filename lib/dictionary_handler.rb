@@ -15,7 +15,7 @@ class DictionaryHandler
     word_ranks = []
     parse_words(words).each do |para_word|
       #search hash by key
-      word_rank = @dict[para_word]
+      word_rank = @dict[para_word.downcase]
 
       #if we have a match, return it
       word_ranks << word_rank if word_rank
@@ -31,20 +31,33 @@ class DictionaryHandler
 
   # returns count of positive, negative, and neutral words as array
   def analyze_words(words)
-    pos_words = 0
-    neg_words = 0
-    neu_words = 0
+    pos_count = 0
+    neg_count = 0
+    neu_count = 0
     search_dictionary(words).each do |w|
       case w
       when 1
-        pos_words +=1
+        pos_count +=1
       when -1
-        neg_words +=1
+        neg_count +=1
       when 0
-        neu_words +=1
+        neu_count +=1
       end
     end
-    [pos_words,neg_words,neu_words]
+    {positive: pos_count, negative: neg_count, neutral: neu_count}
+  end
+
+  # returns uniqe array of words that have been analyzed with their sentiment. 
+  def analyzed_words(words)
+    analyzed_words = []
+    parse_words(words).each do |word|
+      word_rank = @dict[word.downcase]
+
+      if word_rank
+        analyzed_words << { word: word, sentiment: word_rank }
+      end
+    end
+    analyzed_words.uniq
   end
 
 end

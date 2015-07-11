@@ -33,12 +33,12 @@ class Article < ActiveRecord::Base
 		pos_count = 0
 		neg_count = 0
 		neu_count = 0
-		words.each do |word_count|
-			pos_count += word_count[0]
-			neg_count += word_count[1]
-			neu_count += word_count[2]
+		words.each do |wc|
+			pos_count += wc[:positive]
+			neg_count += wc[:negative]
+			neu_count += wc[:neutral]
 		end
-		{postive: pos_count, negative: neg_count, neutral: neu_count}
+		{positive: pos_count, negative: neg_count, neutral: neu_count}
 	end
 
 	def overall_sentiment

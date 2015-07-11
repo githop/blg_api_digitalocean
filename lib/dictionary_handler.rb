@@ -15,7 +15,7 @@ class DictionaryHandler
     word_ranks = []
     parse_words(words).each do |para_word|
       #search hash by key
-      word_rank = @dict[para_word]
+      word_rank = @dict[para_word.downcase]
 
       #if we have a match, return it
       word_ranks << word_rank if word_rank

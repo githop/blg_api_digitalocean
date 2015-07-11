@@ -20,6 +20,9 @@ ActiveRecord::Schema.define(version: 20150627230449) do
     t.string   "title"
     t.date     "posted_on"
     t.integer  "sentiment_rank"
+    t.integer  "positive_wc"
+    t.integer  "negative_wc"
+    t.integer  "neutral_wc"
     t.integer  "user_id"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false

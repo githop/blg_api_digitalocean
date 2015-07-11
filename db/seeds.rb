@@ -215,7 +215,7 @@ end
 a4.save
 
 Article.all.each do |article|
-	article.analyze_sentiment
+	article.analyze_article
 	article.save
 end
 

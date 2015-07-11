@@ -4,6 +4,9 @@ class CreateArticles < ActiveRecord::Migration
       t.string :title
       t.date :posted_on
       t.integer :sentiment_rank
+      t.integer :positive_wc
+      t.integer :negative_wc
+      t.integer :neutral_wc
       t.integer :user_id
 
       t.timestamps null: false

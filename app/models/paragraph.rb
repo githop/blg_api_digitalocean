@@ -2,15 +2,23 @@ class Paragraph < ActiveRecord::Base
 	belongs_to :header
 
 	def get_words
-		self.body.scan(/\w[A-z\uffe2\u0027\u2019]+/)
+		self.body
+	end
+
+	def get_sentiments
+		$dictionary_handler.search_dictionary(get_words)
 	end
 
 	def rank_sentiments
+		$dictionary_handler.rank_words(get_words)
+	end
+
+	def word_analysis
 		$dictionary_handler.analyze_words(get_words)
 	end
 
 	def overall_paragraph_sentiment
-		rank = sentiments_rank
+		rank = rank_sentiments
 		case
 		when rank < 0
 			'negative'

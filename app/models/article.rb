@@ -38,7 +38,7 @@ class Article < ActiveRecord::Base
 			neg_count += word_count[1]
 			neu_count += word_count[2]
 		end
-		{postive: pos_count, negative: neg_count, neutral:neg_count}
+		{postive: pos_count, negative: neg_count, neutral: neu_count}
 	end
 
 	def overall_sentiment

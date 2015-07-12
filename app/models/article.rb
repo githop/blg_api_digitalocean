@@ -12,7 +12,7 @@ class Article < ActiveRecord::Base
 			self.sentiment_rank = calc_overall_rank
 
 			wc = self.paragraph_word_analysis
-			self.positive_wc = wc[:postive]
+			self.positive_wc = wc[:positive]
 			self.negative_wc = wc[:negative]
 			self.neutral_wc = wc[:neutral]
 

@@ -214,6 +214,39 @@ end
 
 a4.save
 
+a5 = Article.new(title: "Sentiment Analysis", posted_on: Date.new(2015,7,11))
+a5.user = g
+a5.imgs << Img.create(href: img_url('0B9oZ9Poh4Y5NRVUtekU5SjQtWDQ'), title: 'happy neutral sad faces')
+a5.imgs << Img.create(href: img_url('0B9oZ9Poh4Y5NWUdUR2JrelJSSGM'), title: 'my ruby command line app')
+a5.imgs <<  Img.create(href: img_url('0B9oZ9Poh4Y5NT2ljWVpQbldrbEE'), title: 'dictionary snippet')
+
+a5h0 = Header.create(text: "Challenge Accepted")
+a5h1 = Header.create(text: "Simple Solution")
+a5h2 = Header.create(text: "Algorithm")
+a5h3 = Header.create(text: "Implementation")
+a5h4 = Header.create(text: "Wrap Up")
+
+a5h0.paragraphs << Paragraph.create(body: "In a recent job application I encountered one of the more interesting screening techniques used by companies. They gave me a take home challenge to code. The challenge was to write a simple command line program that would search twitter by a given keyword for tweets, and then derive the overall sentiment of each tweet.")
+a5h0.paragraphs << Paragraph.create(body: "After some time, I decided to revisit my solution and implement the core algorithm into my blog. You can even give it a try yourself at the top of this post! I’ve since analyzed all the posts in my blog and incorporated the results at the beginning of each post. The rest of this post is about my text sentiment algorithm.")
+
+a5h1.paragraphs << Paragraph.create(body: "Sentiment analysis is pretty fancy sounding, but the solution (in this case) was actually very simple. If you have a list of words with their sentiments, the challenge at this point is basically a lookup problem. Fortunately I was provided a 6k list of words and sentiments in CSV format.")
+a5h1.paragraphs << Paragraph.create(body: "The CSV dictionary is pretty much the only thing I used from the original challenge for my blog implementation.")
+a5h1.paragraphs << Paragraph.create(body: "In this context, a word can potentially be one of three sentiments: positive, negative, or neutral. The sentiment of a body of text is based upon the sentiments of each word which it is composed of. Here’s basically how my algorithm works:")
+
+a5h2.paragraphs << Paragraph.create(body: "<ol><li>Search dictionary for each word of input text</li><li>derive sentiments of search results</li><li>tally overall sentiment from individual sentiments</li></ol>")
+
+a5h3.paragraphs << Paragraph.create(body: "To make the above happen in my rails app I used a custom class called <a href='https://github.com/githop/blg_api_digitalocean/blob/master/lib/dictionary_handler.rb' target='_blank'>DictionaryHandler</a>. It houses all the sentiment analysis logic. Provide it with a dictionary and string of words and it will handle analyzing the sentiment of those words.")
+a5h3.paragraphs << Paragraph.create(body: "It accepts a hash on initialization, which is provided from parsing the CSV dictionary I mentioned earlier. I’m pretty certain that my rails app will parse the CSV when it initializes, and from that point on, the dictionary is stored in memory. I’m not sure if this is poor form, but I’m using a global variable to expose a single instance of the DictionaryHandler for use throughout the app.")
+a5h3.paragraphs << Paragraph.create(body: "After I used the DictionaryHandler on my own blog posts, I figured I had to make an interactive blog post where the user could submit their own arbitrary text for analysis, and that is what you see at the top of this post.")
+
+a5h4.paragraphs << Paragraph.create(body: "As always, you can check out the code for this blog on github, enjoy! I hope you are enjoying this post as much as I did making it!")
+
+[a5h0, a5h1, a5h2, a5h3, a5h4].each do |h|
+	a5.headers << h
+end
+
+a5.save
+
 Article.all.each do |article|
 	article.analyze_article
 	article.save

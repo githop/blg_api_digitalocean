@@ -10,6 +10,8 @@ CSV.foreach('./db/dictionary.csv', headers:true) do |row|
     row['sentiment'] = -1
   when row['sentiment'] == 'neutral'
     row['sentiment'] = 0
+  when row['sentiment'] == 'both'
+  	row['sentiment'] = 0
   end
   dict[row['word']] = row['sentiment']
 end

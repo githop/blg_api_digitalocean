@@ -1,5 +1,6 @@
-Rails.application.routes.draw do
+  Rails.application.routes.draw do
   resources :articles, except: [:new, :edit]
+  resources :paragraphs, only: :update
 
   post '/auth/login' => 'auth#login'
   post 'analyze' => 'sentiments#analyze'

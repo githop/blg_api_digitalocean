@@ -4,10 +4,10 @@ CACHE MANIFEST
 CACHE:
 favicon.ico
 index.html
-app-6873fbc3.js
-vendor-c121682e.js
-app-4ba733aa.css
-vendor-8f38e913.css
+scripts/app-6873fbc3.js
+scripts/vendor-c121682e.js
+styles/app-4ba733aa.css
+styles/vendor-8f38e913.css
 profpic.jpg
 spinner.svg
 

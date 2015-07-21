@@ -1,0 +1,22 @@
+CACHE MANIFEST
+
+
+CACHE:
+favicon.ico
+index.html
+app-6873fbc3.js
+vendor-c121682e.js
+app-4ba733aa.css
+vendor-8f38e913.css
+profpic.jpg
+spinner.svg
+
+
+NETWORK:
+*
+
+
+SETTINGS:
+prefer-online
+
+# hash: 6dcbde8163697b18573aead9770739a0af45d7362d883ad9d70e76af9ec9193e

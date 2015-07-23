@@ -3,7 +3,7 @@ class ParagraphsController < ApplicationController
 
 	def update
 		para = Paragraph.find(params[:id])
-		para.body = params[:paragraph][:body]
+		para.body = params[:data][:body]
 		if para.save
 			render json: para, serializer: ParagraphSerializer
 		end

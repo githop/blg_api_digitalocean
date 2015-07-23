@@ -1,7 +1,7 @@
   Rails.application.routes.draw do
   resources :articles, except: [:new, :edit]
   resources :paragraphs, only: :update
-
+  resources :headers, only: :update
   post '/auth/login' => 'auth#login'
   post 'analyze' => 'sentiments#analyze'
   # The priority is based upon order of creation: first created -> highest priority.

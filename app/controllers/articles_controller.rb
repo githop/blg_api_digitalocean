@@ -2,12 +2,12 @@ class ArticlesController < ApplicationController
 	before_action :authenticate, only: :create
 
 	def index
-		@articles = Article.includes(:imgs, :user, headers: :paragraphs)
+		@articles = Article.includes(:imgs, :user, headers: :paragraphs).order('headers.id');
 		render json: @articles, each_serializer: ArticleSerializer, include: 'user,imgs,headers,paragraphs'
 	end
 
 	def show
-		@article = Article.includes(:imgs, :user, headers: :paragraphs).find(params[:id])
+		@article = Article.includes(:imgs, :user, headers: :paragraphs).order('headers.id').find(params[:id])
 		render json: @article, serializer: ArticleSerializer, include: 'user,imgs,headers,paragraphs'
 	end
 

@@ -4,7 +4,7 @@ CACHE MANIFEST
 CACHE:
 favicon.ico
 index.html
-scripts/app-2512720e.js
+scripts/app-8ef3f53d.js
 scripts/vendor-c744b6d4.js
 styles/app-4836fc34.css
 styles/vendor-8f38e913.css
@@ -22,4 +22,4 @@ http://*
 SETTINGS:
 prefer-online
 
-# hash: 8aef381fb084d8d9c767c30820929e5f35b9cfc166bd45386a48f8bd69bc7154
+# hash: d459489261286e30d6b33d5a1bb528b1a7b6fb0082466223f6b32d776464cf22

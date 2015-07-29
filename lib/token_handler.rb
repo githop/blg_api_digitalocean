@@ -3,7 +3,7 @@
 class TokenHandler
 	class << self
 		def encode_auth_token(user, exp: 1.day.from_now.to_i)
-			payload = {user_id: user.id, sub: 'auth', exp: exp, role: user.role}
+			payload = {user_id: user.id, username: user.username, sub: 'auth', exp: exp, role: user.role}
 			JWT.encode(payload, Rails.application.secrets.secret_key_base, algorithm)
 		end
 

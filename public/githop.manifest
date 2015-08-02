@@ -2,12 +2,14 @@ CACHE MANIFEST
 
 
 CACHE:
-app.min.js
+favicon.ico
 index.html
-assets/fonts/MaterialIcons-Regular.woff
+scripts/app-c3199938.js
+scripts/vendor-c744b6d4.js
+styles/app-3021ab7f.css
+styles/vendor-8f38e913.css
 assets/fonts/Roboto-Italic.ttf
 assets/fonts/Roboto-Regular.ttf
-assets/fonts/fontawesome-webfont.woff
 assets/images/profpic.jpg
 assets/images/spinner.svg
 
@@ -20,4 +22,4 @@ http://*
 SETTINGS:
 prefer-online
 
-# hash: fd546aceeadbdd849138ba9195c0c7733fb10ede523a87fc0d19c4ee3f5296e1
+# hash: 46db6e804cc750745ace325af1c3c083fcaa3199bc3260e55f1df66c199134b1

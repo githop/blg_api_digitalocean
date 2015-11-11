@@ -13,3 +13,5 @@ shared/log/*
 !/log/.keep
 /tmp
 .rbenv-vars
+.gitignore
+.DS_Store

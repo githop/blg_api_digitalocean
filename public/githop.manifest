@@ -5,10 +5,10 @@ CACHE:
 app.min.js
 favicon.ico
 index.html
+assets/images/profpic.jpg
 assets/fonts/Roboto-Italic.ttf
 assets/fonts/Roboto-Regular.ttf
 assets/fonts/materialdesignicons-webfont.ttf
-assets/images/profpic.jpg
 
 
 NETWORK:
@@ -19,4 +19,4 @@ http://*
 SETTINGS:
 prefer-online
 
-# hash: bb5fffe70aa56aae4937dce811bc997ed9a04f289dfee4fdb94d832d60706350
+# hash: 06b0f464c7012283d7f7c6ccd95b666e8a7d833f8ac5b3b3e685ffc7b0f10b94
